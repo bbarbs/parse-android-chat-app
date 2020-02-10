@@ -20,6 +20,7 @@ import com.avocado.chatapp.config.ParseConfig;
 import com.avocado.chatapp.model.Chat;
 import com.avocado.chatapp.navigator.Navigator;
 import com.avocado.chatapp.ui.chat.adapter.ChatAdapter;
+import com.avocado.chatapp.util.KeyboardUtil;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -143,7 +144,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void initializeOnErrorLoadChart(ParseException e) {
-        Toast.makeText(this, "Error load chats: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
     }
 
     private void loadAllChatInAdapterOnFirstLoad(List<Chat> chats) {
@@ -182,9 +183,27 @@ public class ChatActivity extends AppCompatActivity {
 
     private void logOutUser() {
         ParseUser.logOutInBackground(e -> {
-            Navigator.navigateToSignUpActivity(this);
-            finish();
+            if (e == null) {
+                initializeOnSuccessLogOut();
+            } else {
+                initializeOnErrorLogout(e);
+            }
+            initializeOnFinishLogout();
         });
+    }
+
+    private void initializeOnFinishLogout() {
+        setChatBackgroundRelativeLayoutVisibility(View.VISIBLE);
+        setMainProgressBarVisibility(View.GONE);
+    }
+
+    private void initializeOnSuccessLogOut() {
+        Navigator.navigateToSignUpActivity(this);
+        finish();
+    }
+
+    private void initializeOnErrorLogout(ParseException e) {
+        Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
     public static Intent getIntent(Context context) {
@@ -206,6 +225,9 @@ public class ChatActivity extends AppCompatActivity {
 
     @OnClick(R.id.button_chat_logout)
     void onClickLogoutButton() {
+        KeyboardUtil.hideKeyboard(this);
+        setChatBackgroundRelativeLayoutVisibility(View.GONE);
+        setMainProgressBarVisibility(View.VISIBLE);
         logOutUser();
     }
 }

@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initializeOnErrorLoginUser(ParseException e) {
-        Toast.makeText(this, "Error on login: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         showErrorMessageDuringLogin();
     }
 

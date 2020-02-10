@@ -152,8 +152,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void initializeOnErrorSignUpUser(ParseException e) {
-        Toast.makeText(this, "Error on sign up: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-        Log.e(TAG, "done: ", e);
+        Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
     private void setMainProgressBarVisibility(int visibility) {
