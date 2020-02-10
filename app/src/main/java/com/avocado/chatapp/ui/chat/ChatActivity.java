@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.avocado.chatapp.R;
+import com.avocado.chatapp.config.ParseConfig;
 import com.avocado.chatapp.model.Chat;
 import com.avocado.chatapp.navigator.Navigator;
 import com.avocado.chatapp.ui.chat.adapter.ChatAdapter;
@@ -38,8 +39,6 @@ import butterknife.OnClick;
 public class ChatActivity extends AppCompatActivity {
 
     private static final String TAG = ChatActivity.class.getSimpleName();
-
-    private static final String PARSE_LIVE_QUERY_URI = "wss://chat-app-lig.back4app.io";
 
     private ChatAdapter chatAdapter;
 
@@ -164,7 +163,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void initializeParseLiveQueryClient() {
         try {
-            parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient(new URI(PARSE_LIVE_QUERY_URI));
+            parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient(new URI(ParseConfig.LIVE_QUERY_URI));
         } catch (URISyntaxException e) {
             Log.e(TAG, "initParseLiveQueryClient: ", e);
         }
