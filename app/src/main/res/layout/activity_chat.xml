@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.chat.ChatActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_chat"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/background_light"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/all_chat_app"
+                android:textColor="@color/text_toolbar_title"
+                android:textSize="@dimen/size_toolbar_text" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_chat_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/marginend_chat_toolbarbutton"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/chat_log_out"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/button_secondary_dark" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/layout_progressbar" />
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_chat_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/relativelayout_chat_sendmessage"
+            android:layout_alignParentTop="true"
+            android:clipToPadding="true"
+            android:paddingStart="@dimen/padding_chat_recyclerview"
+            android:paddingTop="@dimen/padding_chat_recyclerview"
+            android:paddingEnd="@dimen/padding_chat_recyclerview"
+            android:transcriptMode="alwaysScroll" />
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_chat_sendmessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/all_border"
+            android:padding="@dimen/padding_chat_bottommessagelayout">
+
+            <EditText
+                android:id="@+id/edittext_chat_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/button_chat_send"
+                android:backgroundTint="@android:color/transparent"
+                android:hint="@string/chat_start_a_new_message"
+                android:imeOptions="actionSend"
+                android:inputType="textShortMessage"
+                tools:ignore="Autofill" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_chat_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/button_secondary_dark"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/chat_send"
+                android:textAllCaps="false" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

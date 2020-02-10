@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="size_toolbar_text">18sp</dimen>
+    <dimen name="marginend_chat_toolbarbutton">10dp</dimen>
+    <dimen name="padding_chat_recyclerview">10dp</dimen>
+    <dimen name="padding_chat_bottommessagelayout">10dp</dimen>
+    <dimen name="paddingtop_login_mainlayout">30dp</dimen>
+    <dimen name="paddingstart_login_mainlayout">20dp</dimen>
+    <dimen name="paddingend_login_mainlayout">20dp</dimen>
+    <dimen name="margintop_login_password">10dp</dimen>
+    <dimen name="margintop_login_loginbutton">20dp</dimen>
+    <dimen name="margintop_login_termstextview">15dp</dimen>
+</resources>

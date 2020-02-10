@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Chat App</string>
+    <string name="all_login">Login</string>
+    <string name="all_sign_up">Sign up</string>
+    <string name="all_username">User name</string>
+    <string name="all_password">password</string>
+    <string name="all_chat_app">Chat app</string>
+    <string name="all_value_is_incorrect">Value is incorrect</string>
+    <string name="all_loading">Loading</string>
+    <string name="chat_log_out">Log out</string>
+    <string name="chat_send">send</string>
+    <string name="chat_start_a_new_message">Start a new message</string>
+</resources>
